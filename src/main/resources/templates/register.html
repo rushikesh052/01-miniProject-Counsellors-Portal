@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" >
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	crossorigin="anonymous"></script>
+<title>Register</title>
+<style>
+         #form-container{
+         	box-shadow:10px 10px 10px black;
+         	margin-top:200px;
+         }
+    </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center w-100">
+
+		<div id="form-container" class="w-25 border border-4 border-dark rounded rounded-3 p-4">
+		<h1 style="color: Red;">Register Here</h1>
+		<form th:action="@{/register}" th:object="${counsellors}" method="POST">
+			<font color="green"><p th:text="${smsg}"></p></font>
+			<font color="red"><p th:text="${emsg}"></p></font>
+			<div class="mb-3">
+				<label for="exampleFormControlInput1"><b>Name</b></label> <input
+					type="text" th:field="*{name}" class="form-control" placeholder=" Enter name">
+			</div>
+
+			<div class="mb-3">
+				<label for="exampleFormControlInput1"><b>Email</b></label> <input
+					type="email" th:field="*{email}" class="form-control" placeholder=" Enter Email">
+			</div>
+			<div class="mb-3">
+				<label for="exampleFormControlInput1"><b>password</b></label> <input
+					type="password" th:field="*{password}"class="form-control" placeholder=" Enter password">
+			</div>
+			
+			<div class="mb-3">
+				<label for="exampleFormControlInput1"><b>phone no</b></label> <input
+					type="text" th:field ="*{phno}" class="form-control" placeholder=" Enter phone no">
+			</div>
+
+			<button type="submit" class="btn btn-success">Register</button>
+			
+			<a href="/" class="link-primary"><u>login here</u></a>
+		</form>
+</div>
+</body>
+</html>
