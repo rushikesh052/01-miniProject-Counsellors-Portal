@@ -1,0 +1,6 @@
+projectKey=com.ashokit:01-miniProject-Counsellors-Portal
+serverUrl=http://65.1.134.253:9000
+serverVersion=9.9.4.87374
+dashboardUrl=http://65.1.134.253:9000/dashboard?id=com.ashokit%3A01-miniProject-Counsellors-Portal
+ceTaskId=AY711IiVepXx-OO-1N5z
+ceTaskUrl=http://65.1.134.253:9000/api/ce/task?id=AY711IiVepXx-OO-1N5z

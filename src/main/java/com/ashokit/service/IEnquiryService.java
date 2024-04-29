@@ -14,5 +14,7 @@ public interface IEnquiryService {
 	public List<Enquiry> getEnquiries(Enquiry enquiry,Integer counsellors_id);
 	
 	public Enquiry getEnquiry(Integer Enquiry_id);
+	
+	
 
 }
