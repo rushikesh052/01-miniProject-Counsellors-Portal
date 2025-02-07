@@ -80,8 +80,9 @@
     <td th:text= "${enq.course}"></td>
     <td th:text ="${enq.classMode}"></td>
     <td th:text="${enq.status}"></td>
+    
     <td>
-    <a th:href="@{/enquiry}" class="btn btn-primary">edit</a>
+    <a th:href= "@{'edit?enqId=' + ${enq.Enquiry_id}}" class="btn btn-primary">edit</a>
     </td>
 </tr>
 </tbody>

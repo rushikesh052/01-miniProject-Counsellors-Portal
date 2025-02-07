@@ -2,6 +2,7 @@ package com.ashokit.controller;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ashokit.entity.Enquiry;
 import com.ashokit.service.IEnquiryService;
@@ -68,12 +70,16 @@ public class EnquiryController {
 	}
 	
 	@GetMapping("/edit")
-	public String editEnquiry(@RequestParam("enqId") Integer enqId,Model model) {
-		
+	public String editEnquiryPage(@RequestParam("enqId") Integer enqId,@ModelAttribute("enq") Enquiry enq) {
 	Enquiry enquiry=enqService.getEnquiry(enqId);
-		model.addAttribute("enq", enquiry);
-		
-		return"addEnq";
+		BeanUtils.copyProperties(enquiry, enq);
+		return "EditEnquiry";
+	}
+	@PostMapping("edit")
+	public String editEnquiry(@ModelAttribute("enq") Enquiry enq,Model model) {
+		String msg=enqService.editEnquiry(enq);
+		model.addAttribute("smsg",enq);
+		return "redirect:viewEnquries";
 	}
 	
 	

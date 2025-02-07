@@ -43,7 +43,4 @@ public class Counsellors {
 	
 	@OneToMany(mappedBy = "counsellors")
 	public List<Enquiry> enquiry;
-	
-	
-
 }

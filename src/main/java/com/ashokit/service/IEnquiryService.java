@@ -15,6 +15,8 @@ public interface IEnquiryService {
 	
 	public Enquiry getEnquiry(Integer Enquiry_id);
 	
+	public String editEnquiry(Enquiry enq);
+	
 	
 
 }

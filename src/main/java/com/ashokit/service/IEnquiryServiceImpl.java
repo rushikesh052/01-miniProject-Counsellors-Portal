@@ -1,6 +1,7 @@
 package com.ashokit.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -73,6 +74,16 @@ public class IEnquiryServiceImpl implements IEnquiryService {
 	@Override
 	public Enquiry getEnquiry(Integer Enquiry_id) {
 		return repo.findById(Enquiry_id).orElseThrow();
+	}
+
+	@Override
+	public String editEnquiry(Enquiry enq) {
+		Optional<Enquiry> opt=repo.findById(enq.getEnquiry_id());
+		if(opt.isPresent()) {
+			repo.save(enq);
+			return enq.getEnquiry_id()+" is updated";
+		}
+		return enq.getEnquiry_id()+" not found for edit";
 	}
 	
 	
